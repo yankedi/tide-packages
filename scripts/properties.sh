@@ -23,7 +23,7 @@ fi
 # for important variables, especially specific path variables against
 # `TERMUX_REGEX__SAFE_*_PATH` regexes to reduce any potential damage.
 #
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#file-path-limits
 ###
 
 ##
@@ -191,7 +191,7 @@ TERMUX_REGEX__SINGLE_OR_DOUBLE_DOT_CONTAINING_PATH='((^\./)|(^\.\./)|(/\.$)|(/\.
 #
 # - https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.html
 # - https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-private-app-data-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-private-app-data-directory
 ##
 TERMUX_REGEX__INVALID_TERMUX_ROOTFS_PATHS='^((/bin(/.*)?)|(/boot(/.*)?)|(/dev(/.*)?)|(/etc(/.*)?)|(/home)|(/lib(/.*)?)|(/lib[^/]+(/.*)?)|(/media)|(/mnt)|(/opt)|(/proc(/.*)?)|(/root)|(/run(/.*)?)|(/sbin(/.*)?)|(/srv(/.*)?)|(/sys(/.*)?)|(/tmp(/.*)?)|(/usr)|(/usr/local)|(((/usr/)|(/usr/local/))((bin)|(games)|(include)|(lib)|(libexec)|(lib[^/]+)|(sbin)|(share)|(src)|(X11R6))(/.*)?)|(/var(/.*)?)|(/bin.usr-is-merged)|(/lib.usr-is-merged)|(/sbin.usr-is-merged)|(/.dockerinit)|(/.dockerenv))$'
 
@@ -256,7 +256,7 @@ TERMUX_REGEX__APP_PACKAGE_NAME="^[a-zA-Z][a-zA-Z0-9_]*(\.[a-zA-Z][a-zA-Z0-9_]*)+
 #  to be installed on a removable/portable volume/sd card being used as
 #  adoptable storage.
 #
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-private-app-data-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-private-app-data-directory
 ##
 TERMUX_REGEX__APP_DATA_DIR_PATH='^(((/data/data)|(/data/user/[0-9]+)|(/mnt/expand/[^/]+/user/[0-9]+))/[^/]+)$'
 
@@ -335,8 +335,8 @@ fi
 #
 # Variables defined in this file need to be in sync with `termux-app`
 # (`TermuxConstants` and `TermuxCoreConstants`), termux site and `termux-exec`.
-# - https://github.com/termux/termux-app/blob/master/termux-shared/src/main/java/com/termux/shared/termux/TermuxConstants.java
-# - https://github.com/termux/termux-app/blob/master/termux-shared/src/main/java/com/termux/shared/termux/core/TermuxCoreConstants.java
+# - https://github.io.yankedi.tide/termux-app/blob/master/termux-shared/src/main/java/io.yankedi.tide/shared/termux/TermuxConstants.java
+# - https://github.io.yankedi.tide/termux-app/blob/master/termux-shared/src/main/java/io.yankedi.tide/shared/termux/core/TermuxCoreConstants.java
 #
 # Following is a list of `TERMUX_` variables that are safe to modify when forking.
 # **DO NOT MODIFY ANY OTHER VARIABLE UNLESS YOU KNOW WHAT YOU ARE DOING.**
@@ -422,7 +422,7 @@ TERMUX__INTERNAL_NAME_REGEX="^[a-z0-9][a-z0-9_-]+[a-z0-9]$"
 ##
 # The max length for the `TERMUX__INTERNAL_NAME`.
 #
-# Check https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# Check https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#file-path-limits
 # for why the value `7` is chosen.
 #
 # Constant value: `7`
@@ -441,7 +441,7 @@ TERMUX__REPOS_HOST_ORG_NAME="termux"
 ##
 # Termux repositories host organization url.
 #
-# Default value: `https://github.com/termux`
+# Default value: `https://github.io.yankedi.tide`
 ##
 TERMUX__REPOS_HOST_ORG_URL="https://github.com/$TERMUX__REPOS_HOST_ORG_NAME"
 
@@ -454,17 +454,17 @@ TERMUX__REPOS_HOST_ORG_URL="https://github.com/$TERMUX__REPOS_HOST_ORG_NAME"
 # Ideally package name should be `<= 21` characters and max `33`
 # characters. If package name has not yet been chosen, then it would
 # be best to keep it to `<= 10` characters. Check
-# https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#file-path-limits
 # for why.
 #
 # **See Also:**
 # - `TERMUX_APP__NAMESPACE`.
 # - https://developer.android.com/build/configure-app-module#set-application-id
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-private-app-data-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-private-app-data-directory
 #
-# Default value: `com.termux`
+# Default value: `io.yankedi.tide`
 ##
-TERMUX_APP__PACKAGE_NAME="com.termux"
+TERMUX_APP__PACKAGE_NAME="io.yankedi.tide"
 TERMUX_APP_PACKAGE="$TERMUX_APP__PACKAGE_NAME" # Deprecated alternative variable for `TERMUX_APP__PACKAGE_NAME`
 
 __termux_build_props__add_variables_validator_actions "TERMUX_APP__PACKAGE_NAME" "app_package_name"
@@ -483,7 +483,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX_APP__PACKAGE_NAME"
 # sure a safe path is set if running `clean.sh` in Termux docker or
 # host OS build environment.
 #
-# Default value: `/data/data/com.termux`
+# Default value: `/data/data/io.yankedi.tide`
 ##
 TERMUX_APP__DATA_DIR="/data/data/$TERMUX_APP__PACKAGE_NAME"
 __termux_build_props__add_variables_validator_actions "TERMUX_APP__DATA_DIR" "safe_absolute_path"
@@ -492,7 +492,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX_APP__DATA_DIR" "sa
 # The max length for the `TERMUX_APP__DATA_DIR` including the null '\0'
 # terminator.
 #
-# Check https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# Check https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#file-path-limits
 # for why the value `69` is chosen.
 #
 # Constant value: `69`
@@ -529,9 +529,9 @@ __termux_build_props__add_variables_validator_actions "TERMUX__PROJECT_SUBDIR" "
 # a library, so that Termux files do not interfere with other files
 # of Termux app forks or apps that may use the Termux library.
 #
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-project-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-project-directory
 #
-# Default value: `/data/data/com.termux/termux`
+# Default value: `/data/data/io.yankedi.tide/termux`
 ##
 TERMUX__PROJECT_DIR="$TERMUX_APP__DATA_DIR/$TERMUX__PROJECT_SUBDIR"
 __termux_build_props__add_variables_validator_actions "TERMUX__PROJECT_DIR" "safe_absolute_path"
@@ -553,9 +553,9 @@ TERMUX__CORE_SUBDIR="core"
 # This contains Termux core files for the Termux app, like user settings and configs for the app,
 # which and are independent of any specific rootfs.
 #
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-core-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-core-directory
 #
-# Default value: `/data/data/com.termux/termux/core`
+# Default value: `/data/data/io.yankedi.tide/termux/core`
 ##
 TERMUX__CORE_DIR="$TERMUX__PROJECT_DIR/$TERMUX__CORE_SUBDIR"
 __termux_build_props__add_variables_validator_actions "TERMUX__CORE_DIR" "safe_absolute_path"
@@ -580,9 +580,9 @@ TERMUX__APPS_SUBDIR="app"
 # filesystem/pathname socket files of servers created by the apps.
 # - https://man7.org/linux/man-pages/man7/unix.7.html
 #
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-apps-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-apps-directory
 #
-# Default value: `/data/data/com.termux/termux/app`
+# Default value: `/data/data/io.yankedi.tide/termux/app`
 ##
 TERMUX__APPS_DIR="$TERMUX__PROJECT_DIR/$TERMUX__APPS_SUBDIR"
 __termux_build_props__add_variables_validator_actions "TERMUX__APPS_DIR" "safe_absolute_path"
@@ -591,7 +591,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX__APPS_DIR" "safe_a
 # The max length for the `TERMUX__APPS_DIR` including the null '\0'
 # terminator.
 #
-# Check https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# Check https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#file-path-limits
 # for why the value `84` is chosen.
 #
 # Constant value: `84`
@@ -602,7 +602,7 @@ TERMUX__APPS_DIR___MAX_LEN=84
 # The max length for the Termux apps api socket server parent directory
 # including the null '\0' terminator.
 #
-# Check https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# Check https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#file-path-limits
 # for why the value `98` is chosen.
 #
 # Constant value: `98`
@@ -621,7 +621,7 @@ TERMUX__APPS_DIR_BY_IDENTIFIER_SUBDIR="i"
 ##
 # Termux apps directory path by app identifier under `TERMUX__APPS_DIR`.
 #
-# Default value: `/data/data/com.termux/termux/app/i`
+# Default value: `/data/data/io.yankedi.tide/termux/app/i`
 ##
 TERMUX__APPS_DIR_BY_IDENTIFIER="$TERMUX__APPS_DIR/$TERMUX__APPS_DIR_BY_IDENTIFIER_SUBDIR"
 
@@ -646,7 +646,7 @@ TERMUX__APPS_APP_IDENTIFIER_REGEX="^[a-zA-Z0-9]{3,}([._-][a-zA-Z0-9]+)*$"
 # `TERMUX__APPS_DIR_BY_IDENTIFIER` excluding the null '\0' terminator
 # that represents an app identifier.
 #
-# Check https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# Check https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#file-path-limits
 # for why the value `10` is chosen.
 #
 # Constant value: `10`
@@ -668,7 +668,7 @@ TERMUX__APPS_DIR_BY_UID_SUBDIR="u"
 # Termux apps directory path by app uid (user_id + app_id) under
 # `TERMUX__APPS_DIR`.
 #
-# Default value: `/data/data/com.termux/termux/app/u`
+# Default value: `/data/data/io.yankedi.tide/termux/app/u`
 ##
 TERMUX__APPS_DIR_BY_UID="$TERMUX__APPS_DIR/$TERMUX__APPS_DIR_BY_UID_SUBDIR"
 
@@ -689,7 +689,7 @@ TERMUX__APPS_APP_UID_REGEX="^[1-9][0-9]{4,8}$"
 # `TERMUX__APPS_DIR_BY_UID` excluding the null '\0' terminator that
 # represents an app uid.
 #
-# Check https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# Check https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#file-path-limits
 # for why the value `9` is chosen.
 #
 # Constant value: `9`
@@ -773,7 +773,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX__ROOTFS_SUBDIR" "a
 # Termux rootfs directory path under `TERMUX_APP__DATA_DIR` that
 # contains the Linux environment rootfs provided by Termux.
 #
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-rootfs-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-rootfs-directory
 # - https://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03.html
 #
 # The Termux rootfs must not be set to path in
@@ -781,7 +781,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX__ROOTFS_SUBDIR" "a
 # the `TERMUX_APP__DATA_DIR` if compiling packages for the Android
 # system or `adb` `shell` user.
 #
-# Default value: `/data/data/com.termux/files`
+# Default value: `/data/data/io.yankedi.tide/files`
 ##
 TERMUX__ROOTFS="$TERMUX_APP__DATA_DIR/$TERMUX__ROOTFS_SUBDIR"
 TERMUX_BASE_DIR="$TERMUX__ROOTFS" # Deprecated alternative variable for `TERMUX__ROOTFS`
@@ -796,7 +796,7 @@ TERMUX_APPS_DIR="$TERMUX__ROOTFS/apps"
 # The max length for the `TERMUX__ROOTFS` including the null '\0'
 # terminator.
 #
-# Check https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# Check https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#file-path-limits
 # for why the value `86` is chosen.
 #
 # Constant value: `86`
@@ -824,7 +824,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX__HOME_SUBDIR" "saf
 #
 # It serves the same purpose as the `/home` directory on Linux distros.
 #
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-home-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-home-directory
 # - https://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03s08.html
 #
 # Check `TERMUX__PREFIX` variable docs for rules that apply depending
@@ -832,7 +832,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX__HOME_SUBDIR" "saf
 # The Termux home must not be set to Android/Linux rootfs `/` or any
 # other path in `TERMUX_REGEX__INVALID_TERMUX_HOME_PATHS`.
 #
-# Default value: `/data/data/com.termux/files/home`
+# Default value: `/data/data/io.yankedi.tide/files/home`
 ##
 [[ "$TERMUX__ROOTFS" != "/" ]] && TERMUX__HOME="$TERMUX__ROOTFS/$TERMUX__HOME_SUBDIR" || \
     TERMUX__HOME="/$TERMUX__HOME_SUBDIR"
@@ -843,7 +843,7 @@ TERMUX_ANDROID_HOME="$TERMUX__HOME" # Deprecated alternative variable for `TERMU
 ##
 # Termux legacy project user config directory path under `TERMUX__HOME`.
 #
-# Default value: `/data/data/com.termux/files/home/.termux`
+# Default value: `/data/data/io.yankedi.tide/files/home/.termux`
 ##
 TERMUX__LEGACY_PROJECT_USER_CONFIG_DIR="$TERMUX__HOME/.termux"
 
@@ -871,7 +871,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX__PREFIX_SUBDIR" "a
 # and contains the `bin`, `etc`, `include`, `lib`, `libexec`, `opt`,
 # `share`, `tmp` and `var` sub directories.
 #
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-prefix-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-prefix-directory
 # - https://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch04.html
 #
 # If `TERMUX__ROOTFS` is not equal to `/`, then by default Termux
@@ -939,10 +939,10 @@ __termux_build_props__add_variables_validator_actions "TERMUX__PREFIX_SUBDIR" "a
 # `termux_step_setup_variables` if `TERMUX_PACKAGE_LIBRARY` equals `glibc`.
 # However, `TERMUX__PREFIX_CLASSICAL` retains the original value
 # set below for `TERMUX__PREFIX`.
-# - https://github.com/termux/termux-packages/pull/16901
-# - https://github.com/termux/termux-packages/pull/20864
+# - https://github.io.yankedi.tide/termux-packages/pull/16901
+# - https://github.io.yankedi.tide/termux-packages/pull/20864
 #
-# Default value: `/data/data/com.termux/files/usr`
+# Default value: `/data/data/io.yankedi.tide/files/usr`
 ##
 [[ "$TERMUX__ROOTFS" != "/" ]] && TERMUX__PREFIX="$TERMUX__ROOTFS${TERMUX__PREFIX_SUBDIR:+"/$TERMUX__PREFIX_SUBDIR"}" || \
     TERMUX__PREFIX="/$TERMUX__PREFIX_SUBDIR"
@@ -963,7 +963,7 @@ TERMUX_PREFIX="$TERMUX__PREFIX" # Deprecated alternative variable for `TERMUX__P
 # can be overridden at runtime, like when compiling `glibc` packages.
 # Checks variable docs of `TERMUX__PREFIX` for more info.
 #
-# Default value: `/data/data/com.termux/files/usr`
+# Default value: `/data/data/io.yankedi.tide/files/usr`
 ##
 TERMUX__PREFIX_CLASSICAL="$TERMUX__PREFIX"
 TERMUX_PREFIX_CLASSICAL="$TERMUX__PREFIX" # Deprecated alternative variable for `TERMUX__PREFIX_CLASSICAL`
@@ -982,10 +982,10 @@ TERMUX__PREFIX_GLIBC_SUBDIR="glibc"
 # where all Termux `glibc` packages data is installed.
 #
 # **See Also:**
-# - https://github.com/termux-pacman/glibc-packages
-# - https://github.com/termux/glibc-packages (mirror)
+# - https://github.io.yankedi.tide-pacman/glibc-packages
+# - https://github.io.yankedi.tide/glibc-packages (mirror)
 #
-# Default value: `/data/data/com.termux/files/usr/glibc`
+# Default value: `/data/data/io.yankedi.tide/files/usr/glibc`
 ##
 TERMUX__PREFIX_GLIBC="$TERMUX__PREFIX/$TERMUX__PREFIX_GLIBC_SUBDIR"
 __termux_build_props__add_variables_validator_actions "TERMUX__PREFIX_GLIBC" "safe_absolute_path invalid_termux_prefix_paths path_under_termux_rootfs"
@@ -996,7 +996,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX__PREFIX_GLIBC" "sa
 # The max length for the `TERMUX__PREFIX` including the null '\0'
 # terminator.
 #
-# Check https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# Check https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#file-path-limits
 # for why the value `90` is chosen.
 #
 # Constant value: `90`
@@ -1023,9 +1023,9 @@ TERMUX__PREFIX__BIN_DIR___MAX_LEN="$((TERMUX__PREFIX_DIR___MAX_LEN + 1 + 3))" # 
 # `logcat` if linker debugging is enabled.
 #
 # **See Also:**
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
-# - https://github.com/termux/termux-core-package/blob/master/lib/termux-core_nos_c/tre/include/termux/termux_core__nos__c/v1/termux/file/TermuxFile.h
-# - https://github.com/termux/termux-exec-package/blob/master/lib/termux-exec_nos_c/tre/include/termux/termux_exec__nos__c/v1/termux/api/termux_exec/service/ld_preload/direct/exec/ExecIntercept.h
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# - https://github.io.yankedi.tide/termux-core-package/blob/master/lib/termux-core_nos_c/tre/include/termux/termux_core__nos__c/v1/termux/file/TermuxFile.h
+# - https://github.io.yankedi.tide/termux-exec-package/blob/master/lib/termux-exec_nos_c/tre/include/termux/termux_exec__nos__c/v1/termux/api/termux_exec/service/ld_preload/direct/exec/ExecIntercept.h
 #
 # Constant value: `127`
 ##
@@ -1035,7 +1035,7 @@ TERMUX__PREFIX__BIN_FILE___SAFE_MAX_LEN="$((TERMUX__PREFIX__BIN_DIR___MAX_LEN + 
 # The max length for entire shebang line for `termux-exec`.
 #
 # **See Also:**
-# - https://github.com/termux/termux-exec-package/blob/master/lib/termux-exec_nos_c/tre/include/termux/termux_exec__nos__c/v1/termux/api/termux_exec/service/ld_preload/direct/exec/ExecIntercept.h
+# - https://github.io.yankedi.tide/termux-exec-package/blob/master/lib/termux-exec_nos_c/tre/include/termux/termux_exec__nos__c/v1/termux/api/termux_exec/service/ld_preload/direct/exec/ExecIntercept.h
 #
 # Default value: `340`
 ##
@@ -1088,9 +1088,9 @@ TERMUX__PREFIX__BIN_SUBDIR="bin"
 ##
 # Termux bin directory path under `TERMUX__PREFIX`.
 #
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-bin-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-bin-directory
 #
-# Default value: `/data/data/com.termux/files/usr/bin`
+# Default value: `/data/data/io.yankedi.tide/files/usr/bin`
 ##
 TERMUX__PREFIX__BIN_DIR="$TERMUX__PREFIX/$TERMUX__PREFIX__BIN_SUBDIR"
 
@@ -1106,7 +1106,7 @@ TERMUX__PREFIX__ETC_SUBDIR="etc"
 ##
 # Termux etc directory path under `TERMUX__PREFIX`.
 #
-# Default value: `/data/data/com.termux/files/usr/etc`
+# Default value: `/data/data/io.yankedi.tide/files/usr/etc`
 ##
 TERMUX__PREFIX__ETC_DIR="$TERMUX__PREFIX/$TERMUX__PREFIX__ETC_SUBDIR"
 
@@ -1122,7 +1122,7 @@ TERMUX__PREFIX__BASE_INCLUDE_SUBDIR="include"
 ##
 # Termux base include directory path under `TERMUX__PREFIX`.
 #
-# Default value: `/data/data/com.termux/files/usr/include`
+# Default value: `/data/data/io.yankedi.tide/files/usr/include`
 ##
 TERMUX__PREFIX__BASE_INCLUDE_DIR="$TERMUX__PREFIX/$TERMUX__PREFIX__BASE_INCLUDE_SUBDIR"
 
@@ -1137,7 +1137,7 @@ TERMUX__PREFIX__MULTI_INCLUDE_SUBDIR="include32"
 ##
 # Termux multi include directory path under `TERMUX__PREFIX`.
 #
-# Default value: `/data/data/com.termux/files/usr/include32`
+# Default value: `/data/data/io.yankedi.tide/files/usr/include32`
 ##
 TERMUX__PREFIX__MULTI_INCLUDE_DIR="$TERMUX__PREFIX/$TERMUX__PREFIX__MULTI_INCLUDE_SUBDIR"
 
@@ -1152,7 +1152,7 @@ TERMUX__PREFIX__INCLUDE_SUBDIR="$TERMUX__PREFIX__BASE_INCLUDE_SUBDIR"
 ##
 # Termux include directory path under `TERMUX__PREFIX`.
 #
-# Default value: `/data/data/com.termux/files/usr/include` (`$TERMUX__PREFIX__BASE_INCLUDE_DIR`)
+# Default value: `/data/data/io.yankedi.tide/files/usr/include` (`$TERMUX__PREFIX__BASE_INCLUDE_DIR`)
 ##
 TERMUX__PREFIX__INCLUDE_DIR="$TERMUX__PREFIX__BASE_INCLUDE_DIR"
 
@@ -1168,7 +1168,7 @@ TERMUX__PREFIX__BASE_LIB_SUBDIR="lib"
 ##
 # Termux base lib directory path under `TERMUX__PREFIX`.
 #
-# Default value: `/data/data/com.termux/files/usr/lib`
+# Default value: `/data/data/io.yankedi.tide/files/usr/lib`
 ##
 TERMUX__PREFIX__BASE_LIB_DIR="$TERMUX__PREFIX/$TERMUX__PREFIX__BASE_LIB_SUBDIR"
 
@@ -1183,7 +1183,7 @@ TERMUX__PREFIX__MULTI_LIB_SUBDIR="lib32"
 ##
 # Termux multi lib directory path under `TERMUX__PREFIX`.
 #
-# Default value: `/data/data/com.termux/files/usr/lib32`
+# Default value: `/data/data/io.yankedi.tide/files/usr/lib32`
 ##
 TERMUX__PREFIX__MULTI_LIB_DIR="$TERMUX__PREFIX/$TERMUX__PREFIX__MULTI_LIB_SUBDIR"
 
@@ -1198,9 +1198,9 @@ TERMUX__PREFIX__LIB_SUBDIR="$TERMUX__PREFIX__BASE_LIB_SUBDIR"
 ##
 # Termux lib directory path under `TERMUX__PREFIX`.
 #
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-lib-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-lib-directory
 #
-# Default value: `/data/data/com.termux/files/usr/lib` (`$TERMUX__PREFIX__BASE_LIB_DIR`)
+# Default value: `/data/data/io.yankedi.tide/files/usr/lib` (`$TERMUX__PREFIX__BASE_LIB_DIR`)
 ##
 TERMUX__PREFIX__LIB_DIR="$TERMUX__PREFIX__BASE_LIB_DIR"
 
@@ -1216,7 +1216,7 @@ TERMUX__PREFIX__LIBEXEC_SUBDIR="libexec"
 ##
 # Termux libexec directory path under `TERMUX__PREFIX`.
 #
-# Default value: `/data/data/com.termux/files/usr/libexec`
+# Default value: `/data/data/io.yankedi.tide/files/usr/libexec`
 ##
 TERMUX__PREFIX__LIBEXEC_DIR="$TERMUX__PREFIX/$TERMUX__PREFIX__LIBEXEC_SUBDIR"
 
@@ -1232,7 +1232,7 @@ TERMUX__PREFIX__OPT_SUBDIR="opt"
 ##
 # Termux opt directory path under `TERMUX__PREFIX`.
 #
-# Default value: `/data/data/com.termux/files/usr/opt`
+# Default value: `/data/data/io.yankedi.tide/files/usr/opt`
 ##
 TERMUX__PREFIX__OPT_DIR="$TERMUX__PREFIX/$TERMUX__PREFIX__OPT_SUBDIR"
 
@@ -1248,7 +1248,7 @@ TERMUX__PREFIX__SHARE_SUBDIR="share"
 ##
 # Termux share directory path under `TERMUX__PREFIX`.
 #
-# Default value: `/data/data/com.termux/files/usr/share`
+# Default value: `/data/data/io.yankedi.tide/files/usr/share`
 ##
 TERMUX__PREFIX__SHARE_DIR="$TERMUX__PREFIX/$TERMUX__PREFIX__SHARE_SUBDIR"
 
@@ -1264,7 +1264,7 @@ TERMUX__PREFIX__VAR_SUBDIR="var"
 ##
 # Termux var directory path under `TERMUX__PREFIX`.
 #
-# Default value: `/data/data/com.termux/files/usr/var`
+# Default value: `/data/data/io.yankedi.tide/files/usr/var`
 ##
 TERMUX__PREFIX__VAR_DIR="$TERMUX__PREFIX/$TERMUX__PREFIX__VAR_SUBDIR"
 
@@ -1293,7 +1293,7 @@ TERMUX__PREFIX__TMP_SUBDIR="tmp"
 ##
 # Termux tmp directory path under `TERMUX__PREFIX`.
 #
-# Default value: `/data/data/com.termux/files/usr/tmp`
+# Default value: `/data/data/io.yankedi.tide/files/usr/tmp`
 ##
 TERMUX__PREFIX__TMP_DIR="$TERMUX__PREFIX/$TERMUX__PREFIX__TMP_SUBDIR"
 
@@ -1301,7 +1301,7 @@ TERMUX__PREFIX__TMP_DIR="$TERMUX__PREFIX/$TERMUX__PREFIX__TMP_SUBDIR"
 # The max length for the `TERMUX__PREFIX__TMP_DIR` including the null
 # '\0' terminator.
 #
-# Check https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#file-path-limits
+# Check https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#file-path-limits
 # for why the value `94` is chosen.
 #
 # Constant value: `94`
@@ -1313,7 +1313,7 @@ TERMUX__PREFIX__TMP_DIR___MAX_LEN=94
 ##
 # Termux `profile.d` directory path under `TERMUX__PREFIX__ETC_DIR`.
 #
-# Default value: `/data/data/com.termux/files/usr/etc/profile.d`
+# Default value: `/data/data/io.yankedi.tide/files/usr/etc/profile.d`
 ##
 TERMUX__PREFIX__PROFILE_D_DIR="$TERMUX__PREFIX__ETC_DIR/profile.d"
 
@@ -1321,7 +1321,7 @@ TERMUX__PREFIX__PROFILE_D_DIR="$TERMUX__PREFIX__ETC_DIR/profile.d"
 ##
 # Termux project system config directory path under `TERMUX__PREFIX__ETC_DIR`.
 #
-# Default value: `/data/data/com.termux/files/usr/etc/termux`
+# Default value: `/data/data/io.yankedi.tide/files/usr/etc/termux`
 ##
 TERMUX__PROJECT_SYSTEM_CONFIG_DIR="$TERMUX__PREFIX__ETC_DIR/$TERMUX__INTERNAL_NAME"
 
@@ -1367,9 +1367,9 @@ TERMUX__CACHE_SUBDIR="cache"
 # Currently this is primarily used for packages cache files of package
 # managers (`apt`/`pacman`).
 #
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-app-cache-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-app-cache-directory
 #
-# Default value: `/data/data/com.termux/cache`
+# Default value: `/data/data/io.yankedi.tide/cache`
 ##
 TERMUX__CACHE_DIR="$TERMUX_APP__DATA_DIR/$TERMUX__CACHE_SUBDIR"
 __termux_build_props__add_variables_validator_actions "TERMUX__CACHE_DIR" "safe_absolute_path"
@@ -1387,7 +1387,7 @@ TERMUX_CACHE_DIR="$TERMUX__CACHE_DIR" # Deprecated alternative variable for `TER
 ##
 # Termux bootstrap system config directory path under `TERMUX__PROJECT_SYSTEM_CONFIG_DIR`.
 #
-# Default value: `/data/data/com.termux/files/usr/etc/termux/termux-bootstrap`
+# Default value: `/data/data/io.yankedi.tide/files/usr/etc/termux/termux-bootstrap`
 ##
 TERMUX_BOOTSTRAP__BOOTSTRAP_SYSTEM_CONFIG_DIR="$TERMUX__PROJECT_SYSTEM_CONFIG_DIR/termux-bootstrap"
 
@@ -1402,7 +1402,7 @@ TERMUX_BOOTSTRAP__BOOTSTRAP_SECOND_STAGE_SUBDIR="second-stage"
 ##
 # Termux bootstrap second stage directory path under `TERMUX_BOOTSTRAP__BOOTSTRAP_SYSTEM_CONFIG_DIR`.
 #
-# Default value: `/data/data/com.termux/files/usr/etc/termux/termux-bootstrap/second-stage`
+# Default value: `/data/data/io.yankedi.tide/files/usr/etc/termux/termux-bootstrap/second-stage`
 ##
 TERMUX_BOOTSTRAP__BOOTSTRAP_SECOND_STAGE_DIR="$TERMUX_BOOTSTRAP__BOOTSTRAP_SYSTEM_CONFIG_DIR/$TERMUX_BOOTSTRAP__BOOTSTRAP_SECOND_STAGE_SUBDIR"
 
@@ -1497,7 +1497,7 @@ TERMUX__UNIX_PATH_MAX=108
 # variable names and/or get their values, with support for fallback
 # to the build values defined here if `$TERMUX_ENV__S_ROOT` variable
 # is not exported.**
-# - https://github.com/termux/termux-core-package/blob/master/site/pages/en/projects/docs/usage/utils/termux/shell/command/environment/termux-scoped-env-variable.md
+# - https://github.io.yankedi.tide/termux-core-package/blob/master/site/pages/en/projects/docs/usage/utils/termux/shell/command/environment/termux-scoped-env-variable.md
 #
 # The value of this variable `TERMUX_ENV__S_ROOT` may be modified,
 # although not advisable since external programs would be using
@@ -1767,7 +1767,7 @@ TERMUX_ENV__S_TERMUX_AM_SOCKET="${TERMUX_ENV__S_ROOT}${TERMUX_ENV__SS_TERMUX_AM_
 ####
 # Variables for the Termux packages.
 #
-# - https://github.com/termux/termux-packages
+# - https://github.io.yankedi.tide/termux-packages
 ####
 
 ##
@@ -1780,7 +1780,7 @@ TERMUX_PKGS__REPO_NAME="termux-packages"
 ##
 # Termux packages repo url.
 #
-# Default value: `https://github.com/termux/termux-packages`
+# Default value: `https://github.io.yankedi.tide/termux-packages`
 ##
 TERMUX_PKGS__REPO_URL="$TERMUX__REPOS_HOST_ORG_URL/$TERMUX_PKGS__REPO_NAME"
 
@@ -1791,7 +1791,7 @@ TERMUX_PKGS__REPO_URL="$TERMUX__REPOS_HOST_ORG_URL/$TERMUX_PKGS__REPO_NAME"
 ####
 # Variables for the Termux app that hosts the packages.
 #
-# - https://github.com/termux/termux-app
+# - https://github.io.yankedi.tide/termux-app
 ####
 
 ##
@@ -1830,7 +1830,7 @@ TERMUX_APP__REPO_NAME="termux-app"
 ##
 # Termux app repo url.
 #
-# Default value: `https://github.com/termux/termux-app`
+# Default value: `https://github.io.yankedi.tide/termux-app`
 ##
 TERMUX_APP__REPO_URL="$TERMUX__REPOS_HOST_ORG_URL/$TERMUX_APP__REPO_NAME"
 
@@ -1844,11 +1844,11 @@ TERMUX_APP__REPO_URL="$TERMUX__REPOS_HOST_ORG_URL/$TERMUX_APP__REPO_NAME"
 # **See Also:**
 # - `TERMUX_APP__PACKAGE_NAME`.
 # - https://developer.android.com/build/configure-app-module#set-namespace
-# - https://github.com/termux/termux-app/tree/master/app/src/main/java/com/termux
+# - https://github.io.yankedi.tide/termux-app/tree/master/app/src/main/java/io.yankedi.tide
 #
-# Default value: `com.termux`
+# Default value: `io.yankedi.tide`
 ##
-TERMUX_APP__NAMESPACE="com.termux"
+TERMUX_APP__NAMESPACE="io.yankedi.tide"
 
 __termux_build_props__add_variables_validator_actions "TERMUX_APP__NAMESPACE" "app_package_name"
 
@@ -1857,7 +1857,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX_APP__NAMESPACE" "a
 ##
 # Termux app apps directory path under `TERMUX__APPS_DIR_BY_IDENTIFIER`.
 #
-# Default value: `/data/data/com.termux/termux/app/i/termux`
+# Default value: `/data/data/io.yankedi.tide/termux/app/i/termux`
 ##
 TERMUX_APP__APP_DIR="$TERMUX__APPS_DIR_BY_IDENTIFIER/$TERMUX_APP__APP_IDENTIFIER"
 __termux_build_props__add_variables_validator_actions "TERMUX_APP__APP_DIR" "safe_absolute_path"
@@ -1869,9 +1869,9 @@ __termux_build_props__add_variables_validator_actions "TERMUX_APP__APP_DIR" "saf
 # shell/terminal views.
 #
 # **See Also:**
-# - https://github.com/termux/termux-app/blob/master/app/src/main/java/com/termux/app/TermuxActivity.java
+# - https://github.io.yankedi.tide/termux-app/blob/master/app/src/main/java/io.yankedi.tide/app/TermuxActivity.java
 #
-# Default value: `com.termux.app.TermuxActivity`
+# Default value: `io.yankedi.tide.app.TermuxActivity`
 ##
 TERMUX_APP__SHELL_API__SHELL_API_ACTIVITY__CLASS_NAME="$TERMUX_APP__NAMESPACE.app.TermuxActivity"
 
@@ -1882,9 +1882,9 @@ TERMUX_APP__SHELL_API__SHELL_API_ACTIVITY__CLASS_NAME="$TERMUX_APP__NAMESPACE.ap
 # shell/terminal sessions.
 #
 # **See Also:**
-# - https://github.com/termux/termux-app/blob/master/app/src/main/java/com/termux/app/TermuxService.java
+# - https://github.io.yankedi.tide/termux-app/blob/master/app/src/main/java/io.yankedi.tide/app/TermuxService.java
 #
-# Default value: `com.termux.app.TermuxService`
+# Default value: `io.yankedi.tide.app.TermuxService`
 ##
 TERMUX_APP__SHELL_API__SHELL_API_SERVICE__CLASS_NAME="$TERMUX_APP__NAMESPACE.app.TermuxService"
 
@@ -1895,10 +1895,10 @@ TERMUX_APP__SHELL_API__SHELL_API_SERVICE__CLASS_NAME="$TERMUX_APP__NAMESPACE.app
 # commands sent by 3rd party apps via intents.
 #
 # **See Also:**
-# - https://github.com/termux/termux-app/blob/master/app/src/main/java/com/termux/app/RunCommandService.java
-# - https://github.com/termux/termux-app/wiki/RUN_COMMAND-Intent
+# - https://github.io.yankedi.tide/termux-app/blob/master/app/src/main/java/io.yankedi.tide/app/RunCommandService.java
+# - https://github.io.yankedi.tide/termux-app/wiki/RUN_COMMAND-Intent
 #
-# Default value: `com.termux.app.RunCommandService`
+# Default value: `io.yankedi.tide.app.RunCommandService`
 ##
 TERMUX_APP__RUN_COMMAND_API__RUN_COMMAND_API_SERVICE__CLASS_NAME="$TERMUX_APP__NAMESPACE.app.RunCommandService"
 
@@ -1910,10 +1910,10 @@ TERMUX_APP__RUN_COMMAND_API__RUN_COMMAND_API_SERVICE__CLASS_NAME="$TERMUX_APP__N
 # and `ACTION_VIEW` intents to other apps, like by `termux-open`.
 #
 # **See Also:**
-# - https://github.com/termux/termux-app/blob/master/app/src/main/java/com/termux/app/TermuxOpenReceiver.java
-# - https://github.com/termux/termux-tools/blob/master/scripts/termux-open.in
+# - https://github.io.yankedi.tide/termux-app/blob/master/app/src/main/java/io.yankedi.tide/app/TermuxOpenReceiver.java
+# - https://github.io.yankedi.tide/termux-tools/blob/master/scripts/termux-open.in
 #
-# Default value: `com.termux.app.TermuxOpenReceiver`
+# Default value: `io.yankedi.tide.app.TermuxOpenReceiver`
 ##
 TERMUX_APP__DATA_SENDER_API__DATA_SENDER_API_RECEIVER__CLASS_NAME="$TERMUX_APP__NAMESPACE.app.TermuxOpenReceiver"
 
@@ -1924,7 +1924,7 @@ TERMUX_APP__DATA_SENDER_API__DATA_SENDER_API_RECEIVER__CLASS_NAME="$TERMUX_APP__
 ##
 # Termux apps info environment file path for the Termux app under `TERMUX_APP__APP_DIR`.
 #
-# Default value: `/data/data/com.termux/termux/app/i/termux/termux-apps-info.env`
+# Default value: `/data/data/io.yankedi.tide/termux/app/i/termux/termux-apps-info.env`
 ##
 TERMUX_APP__CORE__APPS_INFO_ENV_FILE="$TERMUX_APP__APP_DIR/$TERMUX_CORE__APPS_INFO_ENV_SUBFILE"
 __termux_build_props__add_variables_validator_actions "TERMUX_APP__CORE__APPS_INFO_ENV_FILE" "safe_absolute_path"
@@ -1932,7 +1932,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX_APP__CORE__APPS_IN
 ##
 # Termux apps info json file path for the Termux app under `TERMUX_APP__APP_DIR`.
 #
-# Default value: `/data/data/com.termux/termux/app/i/termux/termux-apps-info.json`
+# Default value: `/data/data/io.yankedi.tide/termux/app/i/termux/termux-apps-info.json`
 ##
 TERMUX_APP__CORE__APPS_INFO_JSON_FILE="$TERMUX_APP__APP_DIR/$TERMUX_CORE__APPS_INFO_JSON_SUBFILE"
 __termux_build_props__add_variables_validator_actions "TERMUX_APP__CORE__APPS_INFO_JSON_FILE" "safe_absolute_path"
@@ -1940,7 +1940,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX_APP__CORE__APPS_IN
 ##
 # `termux-am-socket` server file path for the Termux app under `TERMUX_APP__APP_DIR`.
 #
-# Default value: `/data/data/com.termux/termux/app/i/termux/termux-am`
+# Default value: `/data/data/io.yankedi.tide/termux/app/i/termux/termux-am`
 ##
 TERMUX_APP__AM_SOCKET__SERVER_SOCKET_FILE="$TERMUX_APP__APP_DIR/$TERMUX_AM_SOCKET__SERVER_SOCKET_SUBFILE"
 __termux_build_props__add_variables_validator_actions "TERMUX_APP__AM_SOCKET__SERVER_SOCKET_FILE" "safe_absolute_path unix_path_max"
@@ -1952,7 +1952,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX_APP__AM_SOCKET__SE
 ####
 # Variables for the Termux:API app that hosts the packages.
 #
-# - https://github.com/termux/termux-api
+# - https://github.io.yankedi.tide/termux-api
 ####
 
 ##
@@ -1962,11 +1962,11 @@ __termux_build_props__add_variables_validator_actions "TERMUX_APP__AM_SOCKET__SE
 # **See Also:**
 # - `TERMUX_API_APP__NAMESPACE`.
 # - https://developer.android.com/build/configure-app-module#set-application-id
-# - https://github.com/termux/termux-packages/wiki/Termux-file-system-layout#termux-private-app-data-directory
+# - https://github.io.yankedi.tide/termux-packages/wiki/Termux-file-system-layout#termux-private-app-data-directory
 #
-# Default value: `com.termux.api`
+# Default value: `io.yankedi.tide.api`
 ##
-TERMUX_API_APP__PACKAGE_NAME="com.termux.api"
+TERMUX_API_APP__PACKAGE_NAME="io.yankedi.tide.api"
 
 __termux_build_props__add_variables_validator_actions "TERMUX_API_APP__PACKAGE_NAME" "app_package_name"
 
@@ -2000,7 +2000,7 @@ TERMUX_API_APP__REPO_NAME="termux-api"
 ##
 # Termux:API app repo url.
 #
-# Default value: `https://github.com/termux/termux-api`
+# Default value: `https://github.io.yankedi.tide/termux-api`
 ##
 TERMUX_API_APP__REPO_URL="$TERMUX__REPOS_HOST_ORG_URL/$TERMUX_API_APP__REPO_NAME"
 
@@ -2014,11 +2014,11 @@ TERMUX_API_APP__REPO_URL="$TERMUX__REPOS_HOST_ORG_URL/$TERMUX_API_APP__REPO_NAME
 # **See Also:**
 # - `TERMUX_API_APP__PACKAGE_NAME`.
 # - https://developer.android.com/build/configure-app-module#set-namespace
-# - https://github.com/termux/termux-api/tree/master/app/src/main/java/com/termux/api
+# - https://github.io.yankedi.tide/termux-api/tree/master/app/src/main/java/io.yankedi.tide/api
 #
-# Default value: `com.termux.api`
+# Default value: `io.yankedi.tide.api`
 ##
-TERMUX_API_APP__NAMESPACE="com.termux.api"
+TERMUX_API_APP__NAMESPACE="io.yankedi.tide.api"
 
 __termux_build_props__add_variables_validator_actions "TERMUX_API_APP__NAMESPACE" "app_package_name"
 
@@ -2027,7 +2027,7 @@ __termux_build_props__add_variables_validator_actions "TERMUX_API_APP__NAMESPACE
 ##
 # Termux:API app apps directory path under `TERMUX__APPS_DIR_BY_IDENTIFIER`.
 #
-# Default value: `/data/data/com.termux/termux/app/i/termuxapi`
+# Default value: `/data/data/io.yankedi.tide/termux/app/i/termuxapi`
 ##
 TERMUX_API_APP__APP_DIR="$TERMUX__APPS_DIR_BY_IDENTIFIER/$TERMUX_API_APP__APP_IDENTIFIER"
 __termux_build_props__add_variables_validator_actions "TERMUX_API_APP__APP_DIR" "safe_absolute_path"
@@ -2040,10 +2040,10 @@ __termux_build_props__add_variables_validator_actions "TERMUX_API_APP__APP_DIR" 
 # native exec entry point.
 #
 # **See Also:**
-# - https://github.com/termux/termux-api/blob/master/app/src/main/java/com/termux/api/TermuxApiReceiver.java
-# - https://github.com/termux/termux-api-package/blob/master/termux-api.c
+# - https://github.io.yankedi.tide/termux-api/blob/master/app/src/main/java/io.yankedi.tide/api/TermuxApiReceiver.java
+# - https://github.io.yankedi.tide/termux-api-package/blob/master/termux-api.c
 #
-# Default value: `com.termux.api.TermuxApiReceiver`
+# Default value: `io.yankedi.tide.api.TermuxApiReceiver`
 ##
 TERMUX_API_APP__ANDROID_API__ANDROID_API_RECEIVER__CLASS_NAME="$TERMUX_API_APP__NAMESPACE.TermuxApiReceiver"
 
@@ -2054,7 +2054,7 @@ TERMUX_API_APP__ANDROID_API__ANDROID_API_RECEIVER__CLASS_NAME="$TERMUX_API_APP__
 ####
 # Variables for the `termux-api` package.
 #
-# - https://github.com/termux/termux-api-package
+# - https://github.io.yankedi.tide/termux-api-package
 ####
 
 ##
@@ -2067,7 +2067,7 @@ TERMUX_API_PKG__REPO_NAME="termux-api-package"
 ##
 # The `termux-api` package repo url.
 #
-# Default value: `https://github.com/termux/termux-api-package`
+# Default value: `https://github.io.yankedi.tide/termux-api-package`
 ##
 TERMUX_API_PKG__REPO_URL="$TERMUX__REPOS_HOST_ORG_URL/$TERMUX_API_PKG__REPO_NAME"
 
@@ -2083,7 +2083,7 @@ TERMUX_API_PKG__REPO_URL="$TERMUX__REPOS_HOST_ORG_URL/$TERMUX_API_PKG__REPO_NAME
 ####
 # Variables for the `termux-core` package.
 #
-# - https://github.com/termux/termux-core-package
+# - https://github.io.yankedi.tide/termux-core-package
 ####
 
 ##
@@ -2096,7 +2096,7 @@ TERMUX_CORE_PKG__REPO_NAME="termux-core-package"
 ##
 # The `termux-core` package repo url.
 #
-# Default value: `https://github.com/termux/termux-core-package`
+# Default value: `https://github.io.yankedi.tide/termux-core-package`
 ##
 TERMUX_CORE_PKG__REPO_URL="$TERMUX__REPOS_HOST_ORG_URL/$TERMUX_CORE_PKG__REPO_NAME"
 
@@ -2107,7 +2107,7 @@ TERMUX_CORE_PKG__REPO_URL="$TERMUX__REPOS_HOST_ORG_URL/$TERMUX_CORE_PKG__REPO_NA
 ####
 # Variables for the `termux-am` package.
 #
-# - https://github.com/termux/TermuxAm
+# - https://github.io.yankedi.tide/TermuxAm
 ####
 
 ##
@@ -2120,7 +2120,7 @@ TERMUX_AM_PKG__REPO_NAME="TermuxAm"
 ##
 # The `termux-am` package repo url.
 #
-# Default value: `https://github.com/termux/TermuxAm`
+# Default value: `https://github.io.yankedi.tide/TermuxAm`
 ##
 TERMUX_AM_PKG__REPO_URL="$TERMUX__REPOS_HOST_ORG_URL/$TERMUX_AM_PKG__REPO_NAME"
 
@@ -2135,11 +2135,11 @@ TERMUX_AM_PKG__REPO_URL="$TERMUX__REPOS_HOST_ORG_URL/$TERMUX_AM_PKG__REPO_NAME"
 #
 # **See Also:**
 # - https://developer.android.com/build/configure-app-module#set-namespace
-# - https://github.com/termux/TermuxAm/tree/master/app/src/main/java/com/termux/termuxam
+# - https://github.io.yankedi.tide/TermuxAm/tree/master/app/src/main/java/io.yankedi.tide/termuxam
 #
-# Constant value: `com.termux.termuxam`
+# Constant value: `io.yankedi.tide.termuxam`
 ##
-TERMUX_AM_APP__NAMESPACE="com.termux.termuxam"
+TERMUX_AM_APP__NAMESPACE="io.yankedi.tide.termuxam"
 
 __termux_build_props__add_variables_validator_actions "TERMUX_AM_APP__NAMESPACE" "app_package_name"
 
@@ -2149,11 +2149,11 @@ __termux_build_props__add_variables_validator_actions "TERMUX_AM_APP__NAMESPACE"
 # TermuxAm main class that is passed as `start-class-name` to
 # `/system/bin/app_process` when running `am.apk` set in `$CLASSPATH`.
 #
-# - https://github.com/termux/TermuxAm/blob/master/app/src/main/java/com/termux/termuxam/Am.java
-# - https://github.com/termux/TermuxAm/blob/v0.8.0/am-libexec-packaged#L30
+# - https://github.io.yankedi.tide/TermuxAm/blob/master/app/src/main/java/io.yankedi.tide/termuxam/Am.java
+# - https://github.io.yankedi.tide/TermuxAm/blob/v0.8.0/am-libexec-packaged#L30
 # - https://cs.android.com/android/platform/superproject/+/android-14.0.0_r1:frameworks/base/cmds/app_process/app_main.cpp;l=31
 #
-# Default value: `com.termux.termuxam.Am`
+# Default value: `io.yankedi.tide.termuxam.Am`
 ##
 TERMUX_AM_APP__AM_CLASS__CLASS_NAME="$TERMUX_AM_APP__NAMESPACE.Am"
 
@@ -2180,13 +2180,13 @@ TERMUX_AM_APP__AM_CLASS__CLASS_NAME="$TERMUX_AM_APP__NAMESPACE.Am"
 # and are compiled locally.
 # FIXME: Checking for all variables will be added later in repo
 # changes pull, currently only `TERMUX_REPO_APP__PACKAGE_NAME` is checked.
-TERMUX_REPO_APP__PACKAGE_NAME="com.termux"
-TERMUX_REPO_APP__DATA_DIR="/data/data/com.termux"
-TERMUX_REPO__CORE_DIR="/data/data/com.termux/termux/core"
-TERMUX_REPO__APPS_DIR="/data/data/com.termux/termux/app"
-TERMUX_REPO__ROOTFS="/data/data/com.termux/files"
-TERMUX_REPO__HOME="/data/data/com.termux/files/home"
-TERMUX_REPO__PREFIX="/data/data/com.termux/files/usr"
+TERMUX_REPO_APP__PACKAGE_NAME="io.yankedi.tide"
+TERMUX_REPO_APP__DATA_DIR="/data/data/io.yankedi.tide"
+TERMUX_REPO__CORE_DIR="/data/data/io.yankedi.tide/termux/core"
+TERMUX_REPO__APPS_DIR="/data/data/io.yankedi.tide/termux/app"
+TERMUX_REPO__ROOTFS="/data/data/io.yankedi.tide/files"
+TERMUX_REPO__HOME="/data/data/io.yankedi.tide/files/home"
+TERMUX_REPO__PREFIX="/data/data/io.yankedi.tide/files/usr"
 
 
 
@@ -2231,10 +2231,10 @@ TERMUX_CLEANUP_BUILT_PACKAGES_THRESHOLD="$(( 5 * 1024 ** 3 ))" # 5 GiB
 __termux_build_props__add_variables_validator_actions "TERMUX_CLEANUP_BUILT_PACKAGES_THRESHOLD" "unsigned_int"
 
 # Path to CGCT tools
-CGCT_DEFAULT_PREFIX="/data/data/com.termux/files/usr/glibc"
+CGCT_DEFAULT_PREFIX="/data/data/io.yankedi.tide/files/usr/glibc"
 __termux_build_props__add_variables_validator_actions "CGCT_DEFAULT_PREFIX" "safe_absolute_path invalid_termux_prefix_paths"
 
-export CGCT_DIR="/data/data/com.termux/cgct"
+export CGCT_DIR="/data/data/io.yankedi.tide/cgct"
 __termux_build_props__add_variables_validator_actions "CGCT_DIR" "safe_absolute_path invalid_termux_prefix_paths"
 
 # Allow to override setup.
