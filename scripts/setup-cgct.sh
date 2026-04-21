@@ -57,6 +57,12 @@ for pkgname in ${!CGCT[@]}; do
 			"${TMPDIR_CGCT}/${filename}" \
 			"${SHA256SUM}"
 	fi
+	if [ ! -e "/data/data/com.termux" ] && \
+		[ "${TERMUX_APP__PACKAGE_NAME}" != "com.termux" ]; then
+    	mkdir -p "/data/data/${TERMUX_APP__PACKAGE_NAME}"
+    	mkdir -p /data/data
+    	ln -sfn "/data/data/${TERMUX_APP__PACKAGE_NAME}" "/data/data/com.termux"
+	fi
 	tar xJf "${TMPDIR_CGCT}/${filename}" -C / data
 done
 
