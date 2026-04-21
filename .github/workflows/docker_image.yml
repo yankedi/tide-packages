@@ -71,14 +71,14 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
-        
+
     - name: Push
       if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && github.repository == 'yankedi/tide-packages' && steps.skip-build.outputs.skip-build != 'true'
       run: |
         # ghcr.io seem to be unstable sometimes. It may suddenly drop connection
         # during docker push when some layers are already uploaded. The workaround
         # is to retry again 1 or 2 more times.
-        for registry in "ghcr.io/" ""; do
+        for registry in "ghcr.io/"; do
           for image in package-builder package-builder-cgct; do
             for t in 1 2 3; do
               if docker push "${registry}yankedi/${image}:latest"; then
