@@ -1,21 +1,21 @@
 {
   "pkg_format": "debian",
   "packages": {
-    "name": "termux-main",
+    "name": "tide-main",
     "distribution": "stable",
     "component": "main",
-    "url": "https://packages-cf.termux.dev/apt/termux-main"
+    "url": "https://yanmian.top/tide-main"
   },
   "root-packages": {
-    "name": "termux-root",
+    "name": "tide-root",
     "distribution": "root",
     "component": "stable",
-    "url": "https://packages-cf.termux.dev/apt/termux-root"
+    "url": "https://yanmian.top/tide-root"
   },
   "x11-packages": {
-    "name": "termux-x11",
+    "name": "tide-x11",
     "distribution": "x11",
     "component": "main",
-    "url": "https://packages-cf.termux.dev/apt/termux-x11"
+    "url": "https://yanmian.top/tide-x11"
   }
 }
